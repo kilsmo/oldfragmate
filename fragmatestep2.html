@@ -1,0 +1,5156 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Fragmate step2 test</title>
+    <script src="fragmate.js" type="text/javascript"></script>
+    <script src="fragmatetest.js" type="text/javascript"></script>
+
+<script type="text/html" id="test1">
+{
+    "$$type": "view",
+    "$$name": "one"
+}
+</script>
+
+<script type="text/html" id="reftest1">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test2">
+{
+    "$$type": "template",
+    "$$name": "one"
+}
+</script>
+
+<script type="text/html" id="reftest2">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test3">
+{
+    "$$type": "view",
+    "$$name": "one",
+    "one": "two"
+}
+</script>
+
+<script type="text/html" id="reftest3">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {
+                "one": "two"
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test4">
+{
+    "$$type": "template",
+    "$$name": "one",
+    "one": "two"
+}
+</script>
+
+<script type="text/html" id="reftest4">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {
+                "one": "two"
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test5">
+{
+    "$$type": "view",
+    "$$name": "one",
+    "$one": "two"
+}
+</script>
+
+<script type="text/html" id="reftest5">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {
+                "one": {
+                    "type": "fm_ref",
+                    "val": "two"
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test6">
+{
+    "$$type": "template",
+    "$$name": "one",
+    "$one": "two"
+}
+</script>
+
+<script type="text/html" id="reftest6">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {
+                "one": {
+                    "type": "fm_ref",
+                    "val": "two"
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test7">
+unless one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="reftest7">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test8">
+unless one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="reftest8">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test9">
+iterate one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="reftest9">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test10">
+iterate one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="reftest10">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test11">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="reftest11">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test12">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="reftest12">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test13">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest13">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        },
+        "else": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test14">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest14">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        },
+        "else": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test15">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest15">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test16">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest16">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test17">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest17">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test18">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest18">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test19">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest19">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            },
+            {
+                "name": "five",
+                "obj": {
+                    "type": "view",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test20">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest20">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            },
+            {
+                "name": "five",
+                "obj": {
+                    "type": "template",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test21">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "seven"
+}
+</script>
+
+<script type="text/html" id="reftest21">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            },
+            {
+                "name": "five",
+                "obj": {
+                    "type": "view",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "view",
+            "name": "seven",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test22">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "seven"
+}
+</script>
+
+<script type="text/html" id="reftest22">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            },
+            {
+                "name": "five",
+                "obj": {
+                    "type": "template",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "template",
+            "name": "seven",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test23">
+{
+    "$$type": "view",
+    "$$name": "one"
+}
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="reftest23">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test24">
+{
+    "$$type": "template",
+    "$$name": "one"
+}
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="reftest24">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test25">
+{
+    "$$type": "view",
+    "$$name": "one"
+}
+unless two
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest25">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "two",
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test26">
+{
+    "$$type": "template",
+    "$$name": "one"
+}
+unless two
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest26">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "two",
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test27">
+unless one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest27">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test28">
+unless one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest28">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test29">
+{
+    "$$type": "view",
+    "$$name": "one"
+}
+iterate two
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest29">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "two",
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test30">
+{
+    "$$type": "template",
+    "$$name": "one"
+}
+iterate two
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest30">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "two",
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test31">
+iterate one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest31">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test32">
+iterate one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest32">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test33">
+{
+    "$$type": "view",
+    "$$name": "one"
+}
+if two
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest33">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test34">
+{
+    "$$type": "template",
+    "$$name": "one"
+}
+if two
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest34">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test35">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest35">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test36">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+</script>
+
+<script type="text/html" id="reftest36">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test37">
+{
+    "$$type": "view",
+    "$$name": "one"
+}
+if two
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest37">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test38">
+{
+    "$$type": "template",
+    "$$name": "one"
+}
+if two
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest38">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test39">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest39">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test40">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest40">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test41">
+{
+    "$$type": "view",
+    "$$name": "one"
+}
+if two
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+elsif four
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest41">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "elsif": [
+            {
+                "name": "four",
+                "obj": {
+                    "type": "view",
+                    "name": "five",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test42">
+{
+    "$$type": "template",
+    "$$name": "one"
+}
+if two
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+elsif four
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest42">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "elsif": [
+            {
+                "name": "four",
+                "obj": {
+                    "type": "template",
+                    "name": "five",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test43">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest43">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test44">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest44">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test45">
+{
+    "$$type": "view",
+    "$$name": "one"
+}
+if two
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+elsif four
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest45">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "elsif": [
+            {
+                "name": "four",
+                "obj": {
+                    "type": "view",
+                    "name": "five",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test46">
+{
+    "$$type": "template",
+    "$$name": "one"
+}
+if two
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+elsif four
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest46">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "one",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "elsif": [
+            {
+                "name": "four",
+                "obj": {
+                    "type": "template",
+                    "name": "five",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "template",
+            "name": "six",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test47">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest47">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test48">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest48">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "object",
+        "obj": {
+            "type": "template",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test49">
+unless one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+unless three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest49">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test50">
+unless one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+unless three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest50">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test51">
+iterate one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+iterate three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest51">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "three",
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test52">
+iterate one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+iterate three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest52">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "three",
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test53">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest53">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test54">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest54">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test55">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+if four
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest55">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "four",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test56">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+if four
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest56">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "four",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "six",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test57">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+if five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+elsif seven
+{
+    "$$type": "view",
+    "$$name": "eight"
+}
+</script>
+
+<script type="text/html" id="reftest57">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "five",
+        "elsif": [
+            {
+                "name": "seven",
+                "obj": {
+                    "type": "view",
+                    "name": "eight",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test58">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+if five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+elsif seven
+{
+    "$$type": "template",
+    "$$name": "eight"
+}
+</script>
+
+<script type="text/html" id="reftest58">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "five",
+        "elsif": [
+            {
+                "name": "seven",
+                "obj": {
+                    "type": "template",
+                    "name": "eight",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test59">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+if six
+{
+    "$$type": "view",
+    "$$name": "seven"
+}
+elsif eight
+{
+    "$$type": "view",
+    "$$name": "nine"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "ten"
+}
+</script>
+
+<script type="text/html" id="reftest59">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "six",
+        "elsif": [
+            {
+                "name": "eight",
+                "obj": {
+                    "type": "view",
+                    "name": "nine",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "view",
+            "name": "ten",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "seven",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test60">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+if six
+{
+    "$$type": "template",
+    "$$name": "seven"
+}
+elsif eight
+{
+    "$$type": "template",
+    "$$name": "nine"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "ten"
+}
+</script>
+
+<script type="text/html" id="reftest60">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "six",
+        "elsif": [
+            {
+                "name": "eight",
+                "obj": {
+                    "type": "template",
+                    "name": "nine",
+                    "obj": {}
+                }
+            }
+        ],
+        "else": {
+            "type": "template",
+            "name": "ten",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "seven",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test61">
+unless one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+iterate three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest61">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "three",
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test62">
+unless one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+iterate three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest62">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "three",
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test63">
+iterate one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+unless three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest63">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test64">
+iterate one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+unless three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest64">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test65">
+unless one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest65">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test66">
+unless one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest66">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test67">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+unless three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest67">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test68">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+unless three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest68">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test69">
+unless one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest69">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test70">
+unless one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest70">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test71">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+unless four
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest71">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "four",
+        "obj": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test72">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+unless four
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest72">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "four",
+        "obj": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test73">
+unless one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest73">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [
+            {
+                "name": "five",
+                "obj": {
+                    "type": "view",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test74">
+unless one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest74">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [
+            {
+                "name": "five",
+                "obj": {
+                    "type": "template",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test75">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+unless five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest75">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "five",
+        "obj": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test76">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+unless five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest76">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "unless",
+        "name": "five",
+        "obj": {
+            "type": "template",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test77">
+iterate one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest77">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test78">
+iterate one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest78">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test79">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+iterate three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest79">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "three",
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test80">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+iterate three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+</script>
+
+<script type="text/html" id="reftest80">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "three",
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test81">
+iterate one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest81">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test82">
+iterate one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest82">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test83">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+iterate four
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest83">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "four",
+        "obj": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test84">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+iterate four
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest84">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "four",
+        "obj": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test85">
+iterate one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest85">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [
+            {
+                "name": "five",
+                "obj": {
+                    "type": "view",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test86">
+iterate one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest86">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [
+            {
+                "name": "five",
+                "obj": {
+                    "type": "template",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test87">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+iterate five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest87">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "five",
+        "obj": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test88">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+iterate five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest88">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "iterate",
+        "name": "five",
+        "obj": {
+            "type": "template",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test89">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest89">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test90">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest90">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test91">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+if four
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest91">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "four",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test92">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+if four
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+</script>
+
+<script type="text/html" id="reftest92">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "four",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test93">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest93">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [
+            {
+                "name": "five",
+                "obj": {
+                    "type": "view",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test94">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+if three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+elsif five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest94">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "elsif": [
+            {
+                "name": "five",
+                "obj": {
+                    "type": "template",
+                    "name": "six",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "four",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test95">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+if five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest95">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "five",
+        "elsif": [],
+        "obj": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test96">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "template",
+    "$$name": "four"
+}
+if five
+{
+    "$$type": "template",
+    "$$name": "six"
+}
+</script>
+
+<script type="text/html" id="reftest96">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "five",
+        "elsif": [],
+        "obj": {
+            "type": "template",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test97">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "three"
+}
+if four
+{
+    "$$type": "view",
+    "$$name": "five"
+}
+elsif six
+{
+    "$$type": "view",
+    "$$name": "seven"
+}
+</script>
+
+<script type="text/html" id="reftest97">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "four",
+        "elsif": [
+            {
+                "name": "six",
+                "obj": {
+                    "type": "view",
+                    "name": "seven",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test98">
+if one
+{
+    "$$type": "template",
+    "$$name": "two"
+}
+else
+{
+    "$$type": "template",
+    "$$name": "three"
+}
+if four
+{
+    "$$type": "template",
+    "$$name": "five"
+}
+elsif six
+{
+    "$$type": "template",
+    "$$name": "seven"
+}
+</script>
+
+<script type="text/html" id="reftest98">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [],
+        "else": {
+            "type": "template",
+            "name": "three",
+            "obj": {}
+        },
+        "obj": {
+            "type": "template",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "four",
+        "elsif": [
+            {
+                "name": "six",
+                "obj": {
+                    "type": "template",
+                    "name": "seven",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "template",
+            "name": "five",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test99">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+if five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "seven"
+}
+</script>
+
+<script type="text/html" id="reftest99">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "five",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "seven",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test100">
+if one
+{
+    "$$type": "view",
+    "$$name": "two"
+}
+elsif three
+{
+    "$$type": "view",
+    "$$name": "four"
+}
+if five
+{
+    "$$type": "view",
+    "$$name": "six"
+}
+else
+{
+    "$$type": "view",
+    "$$name": "seven"
+}
+</script>
+
+<script type="text/html" id="reftest100">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "elsif": [
+            {
+                "name": "three",
+                "obj": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        ],
+        "obj": {
+            "type": "view",
+            "name": "two",
+            "obj": {}
+        }
+    },
+    {
+        "command": "if",
+        "name": "five",
+        "elsif": [],
+        "else": {
+            "type": "view",
+            "name": "seven",
+            "obj": {}
+        },
+        "obj": {
+            "type": "view",
+            "name": "six",
+            "obj": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test101">
+{
+    "$$type": "fragment",
+    "$$name": "one"
+}
+</script>
+
+<script type="text/html" id="reftest101">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {}
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test102">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest102">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "view",
+                    "name": "two",
+                    "obj": {}
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test103">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two",
+        "three": "3"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest103">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "view",
+                    "name": "two",
+                    "obj": {
+                        "three": "3"
+                    }
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test104">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two",
+        "$three": "four"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest104">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "view",
+                    "name": "two",
+                    "obj": {
+                        "three": {
+                            "type": "fm_ref",
+                            "val": "four"
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test105">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two",
+        "$three": "four",
+        "five": "six"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest105">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "view",
+                    "name": "two",
+                    "obj": {
+                        "three": {
+                            "type": "fm_ref",
+                            "val": "four"
+                        },
+                        "five": "six"
+                    }
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test106">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "template",
+        "$$name": "two"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest106">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "template",
+                    "name": "two",
+                    "obj": {}
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test107">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "template",
+        "$$name": "two",
+        "three": "3"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest107">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "template",
+                    "name": "two",
+                    "obj": {
+                        "three": "3"
+                    }
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test108">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "template",
+        "$$name": "two",
+        "$three": "four"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest108">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "template",
+                    "name": "two",
+                    "obj": {
+                        "three": {
+                            "type": "fm_ref",
+                            "val": "four"
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test109">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "template",
+        "$$name": "two",
+        "$three": "four",
+        "five": "six"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest109">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "template",
+                    "name": "two",
+                    "obj": {
+                        "three": {
+                            "type": "fm_ref",
+                            "val": "four"
+                        },
+                        "five": "six"
+                    }
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test110">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two"
+    },
+    "three": {
+        "$$type": "view",
+        "$$name": "four"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest110">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "view",
+                    "name": "two",
+                    "obj": {}
+                },
+                "three": {
+                    "type": "view",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test111">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "template",
+        "$$name": "two"
+    },
+    "three": {
+        "$$type": "template",
+        "$$name": "four"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest111">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "template",
+                    "name": "two",
+                    "obj": {}
+                },
+                "three": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test112">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two"
+    },
+    "three": {
+        "$$type": "template",
+        "$$name": "four"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest112">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "view",
+                    "name": "two",
+                    "obj": {}
+                },
+                "three": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {}
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test113">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two",
+        "five": "six",
+        "seven": "eight"
+    },
+    "three": {
+        "$$type": "template",
+        "$$name": "four",
+        "nine": "ten",
+        "$eleven": "twelve"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest113">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "view",
+                    "name": "two",
+                    "obj": {
+                        "five": "six",
+                        "seven": "eight"
+                    }
+                },
+                "three": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {
+                        "nine": "ten",
+                        "eleven": {
+                            "type": "fm_ref",
+                            "val": "twelve"
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test114">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two",
+        "five": "six",
+        "seven": "eight"
+    },
+    "three": {
+        "$$type": "template",
+        "$$name": "four",
+        "nine": "ten",
+        "$eleven": "twelve"
+    },
+    "thirteen": {
+        "$$type": "template",
+        "$$name": "fourteen",
+        "$fifteen": "sixteen",
+        "seventeen": "eighteen"
+    }
+}
+</script>
+
+<script type="text/html" id="reftest114">
+[
+    {
+        "command": "object",
+        "obj": {
+            "type": "fragment",
+            "name": "one",
+            "params": {
+                "one": {
+                    "type": "view",
+                    "name": "two",
+                    "obj": {
+                        "five": "six",
+                        "seven": "eight"
+                    }
+                },
+                "three": {
+                    "type": "template",
+                    "name": "four",
+                    "obj": {
+                        "nine": "ten",
+                        "eleven": {
+                            "type": "fm_ref",
+                            "val": "twelve"
+                        }
+                    }
+                },
+                "thirteen": {
+                    "type": "template",
+                    "name": "fourteen",
+                    "obj": {
+                        "fifteen": {
+                            "type": "fm_ref",
+                            "val": "sixteen"
+                        },
+                        "seventeen": "eighteen"
+                    }
+                }
+            }
+        }
+    }
+]
+</script>
+
+<script type="text/html" id="test151">
+{
+    "$$type": "view"
+}
+</script>
+
+<script type="text/html" id="test152">
+{
+    "$$type": "template"
+}
+</script>
+
+<script type="text/html" id="test153">
+{
+    "$$type": "fragment"
+}
+</script>
+
+<script type="text/html" id="test154">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "two": {
+        "$$type": "view"
+    }
+}
+</script>
+
+<script type="text/html" id="test155">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "two": {
+        "$$type": "template"
+    }
+}
+</script>
+
+<script type="text/html" id="test156">
+{
+    "$$type": "one",
+    "$$name": "two"
+}
+</script>
+
+<script type="text/html" id="test157">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "two": {
+        "$$type": "fragment",
+        "$$name": "two"
+    }
+}
+</script>
+
+<script type="text/html" id="test158">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "two": {
+        "$$type": "two",
+        "$$name": "three"
+    }
+}
+</script>
+
+<script type="text/html" id="test159">
+{
+    "$$name": "one"
+}
+</script>
+
+<script type="text/html" id="test160">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "$$controller": "two"
+}
+</script>
+
+<script type="text/html" id="test161">
+{
+    "$$type": "view",
+    "$$name": "one",
+    "$$controller": 2
+}
+</script>
+
+<script type="text/html" id="test162">
+{
+    "$$type": "template",
+    "$$name": "one",
+    "$$controller": 2
+}
+</script>
+
+<script type="text/html" id="test163">
+{
+    "$$type": "view",
+    "$$name": "one",
+    "$$span": "true"
+}
+</script>
+
+<script type="text/html" id="test164">
+{
+    "$$type": "view",
+    "$$name": "one",
+    "$$span": "true"
+}
+</script>
+
+<script type="text/html" id="test165">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "$$span": "two"
+}
+</script>
+
+<script type="text/html" id="test166">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "$$span": "false"
+}
+</script>
+
+<script type="text/html" id="test167">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "$$span": "false"
+}
+</script>
+
+<script type="text/html" id="test168">
+{
+    "$$type": "view",
+    "$$name": 2
+}
+</script>
+
+<script type="text/html" id="test169">
+{
+    "$$type": "template",
+    "$$name": 2
+}
+</script>
+
+<script type="text/html" id="test170">
+{
+    "$$type": "fragment",
+    "$$name": 2
+}
+</script>
+
+<script type="text/html" id="test171">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": 2
+    }
+}
+</script>
+
+<script type="text/html" id="test172">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "template",
+        "$$name": 2
+    }
+}
+</script>
+
+<script type="text/html" id="test173">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "view",
+        "$$name": "two",
+        "$$controller": 3
+    }
+}
+</script>
+
+<script type="text/html" id="test174">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "one": {
+        "$$type": "template",
+        "$$name": "two",
+        "$$controller": 3
+    }
+}
+</script>
+
+<script type="text/html" id="test175">
+{
+    "$$type": "view",
+    "$$name": ""
+}
+</script>
+
+<script type="text/html" id="test176">
+{
+    "$$type": "template",
+    "$$name": ""
+}
+</script>
+
+<script type="text/html" id="test177">
+{
+    "$$type": "fragment",
+    "$$name": ""
+}
+</script>
+
+<script type="text/html" id="test178">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "two": {
+        "$$type": "view",
+        "$$name": ""
+    }
+}
+</script>
+
+<script type="text/html" id="test179">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "two": {
+        "$$type": "template",
+        "$$name": ""
+    }
+}
+</script>
+
+<script type="text/html" id="test180">
+{
+    "$$type": "view",
+    "$$name": "one",
+    "$": "two"
+}
+</script>
+
+<script type="text/html" id="test181">
+{
+    "$$type": "template",
+    "$$name": "one",
+    "$": "two"
+}
+</script>
+
+<script type="text/html" id="test182">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "two": {
+        "$$type": "view",
+        "$$name": "two",
+        "$": "three"
+    }
+}
+</script>
+
+<script type="text/html" id="test183">
+{
+    "$$type": "fragment",
+    "$$name": "one",
+    "two": {
+        "$$type": "template",
+        "$$name": "two",
+        "$": "three"
+    }
+}
+</script>
+
+</head>
+<body id="step2">
+</body>
+</html>

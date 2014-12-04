@@ -1,0 +1,10 @@
+* {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+}
+
+#fm_dragelm {
+	position: absolute;
+	z-index: 1;
+	pointer-events: none;
+}

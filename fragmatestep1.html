@@ -1,0 +1,1670 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Fragmate step1 test</title>
+    <script src="fragmate.js" type="text/javascript"></script>
+    <script src="fragmatetest.js" type="text/javascript"></script>
+
+
+<script type="text/html" id="test1">
+</script>
+<script type="text/html" id="reftest1">
+[
+]
+</script>
+
+<script type="text/html" id="test2">
+{
+}
+</script>
+<script type="text/html" id="reftest2">
+[
+    {
+        "command": "object",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test3">
+{
+    "a": "3"
+}
+</script>
+<script type="text/html" id="reftest3">
+[
+    {
+        "command": "object",
+        "obj": { "a": "3" }
+    }
+]
+</script>
+
+<script type="text/html" id="test4">
+{
+    "a": "3",
+    "b": "4"
+}
+</script>
+<script type="text/html" id="reftest4">
+[
+    {
+        "command": "object",
+        "obj": { "b": "4", "a": "3" }
+    }
+]
+</script>
+
+<script type="text/html" id="test5">
+{
+    "a": "3",
+    "b": "one"
+}
+</script>
+<script type="text/html" id="reftest5">
+[
+    {
+        "command": "object",
+        "obj": { "b": "one", "a": "3" }
+    }
+]
+</script>
+
+<script type="text/html" id="test6">
+unless one
+{
+}
+</script>
+<script type="text/html" id="reftest6">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test7">
+iterate one
+{
+}
+</script>
+<script type="text/html" id="reftest7">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test8">
+if one
+{
+}
+</script>
+<script type="text/html" id="reftest8">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test9">
+if one
+{
+}
+else
+{
+}
+</script>
+<script type="text/html" id="reftest9">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "else",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test10">
+if one
+{
+}
+elsif two
+{
+}
+</script>
+<script type="text/html" id="reftest10">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test11">
+if one
+{
+}
+elsif two
+{
+}
+else
+{
+}
+</script>
+<script type="text/html" id="reftest11">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": {}
+    },
+    {
+        "command": "else",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test12">
+if one
+{
+}
+elsif two
+{
+}
+elsif three
+{
+}
+</script>
+<script type="text/html" id="reftest12">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": {}
+    },
+    {
+        "command": "elsif",
+        "name": "three",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test13">
+if one
+{
+}
+elsif two
+{
+}
+elsif three
+{
+}
+else
+{
+}
+</script>
+<script type="text/html" id="reftest13">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": {}
+    },
+    {
+        "command": "elsif",
+        "name": "three",
+        "obj": {}
+    },
+    {
+        "command": "else",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test14">
+{
+}
+{
+}
+</script>
+<script type="text/html" id="reftest14">
+[
+    {
+        "command": "object",
+        "obj": {}
+    },
+    {
+        "command": "object",
+        "obj": {}
+    }
+]
+</script>
+
+
+<script type="text/html" id="test15">
+{
+}
+
+{
+}
+</script>
+<script type="text/html" id="reftest15">
+[
+    {
+        "command": "object",
+        "obj": {}
+    },
+    {
+        "command": "object",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test16">
+if one
+{
+}
+
+{
+}
+</script>
+<script type="text/html" id="reftest16">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "object",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test17">
+{
+}
+
+if one
+{
+}
+</script>
+<script type="text/html" id="reftest17">
+[
+    {
+        "command": "object",
+        "obj": {}
+    },
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test18">
+{
+}
+
+unless one
+{
+}
+</script>
+<script type="text/html" id="reftest18">
+[
+    {
+        "command": "object",
+        "obj": {}
+    },
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test19">
+unless one
+{
+}
+
+{
+}
+</script>
+<script type="text/html" id="reftest19">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "object",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test20">
+{
+}
+
+iterate one
+{
+}
+</script>
+<script type="text/html" id="reftest20">
+[
+    {
+        "command": "object",
+        "obj": {}
+    },
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test21">
+iterate one
+{
+}
+
+{
+}
+</script>
+<script type="text/html" id="reftest21">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "object",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test22">
+{
+}
+
+if one
+{
+}
+else
+{
+}
+</script>
+<script type="text/html" id="reftest22">
+[
+    {
+        "command": "object",
+        "obj": {}
+    },
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "else",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test23">
+if one
+{
+}
+else
+{
+}
+
+{
+}
+</script>
+<script type="text/html" id="reftest23">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "else",
+        "obj": {}
+    },
+    {
+        "command": "object",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test24">
+{
+}
+
+if one
+{
+}
+elsif two
+{
+}
+</script>
+<script type="text/html" id="reftest24">
+[
+    {
+        "command": "object",
+        "obj": {}
+    },
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test25">
+if one
+{
+}
+elsif two
+{
+}
+
+{
+}
+</script>
+<script type="text/html" id="reftest25">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": {}
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": {}
+    },
+    {
+        "command": "object",
+        "obj": {}
+    }
+]
+</script>
+
+<script type="text/html" id="test26">
+if one
+{
+    "a": "3"
+}
+</script>
+<script type="text/html" id="reftest26">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    }
+]
+</script>
+
+<script type="text/html" id="test27">
+unless one
+{
+    "a": "3"
+}
+</script>
+<script type="text/html" id="reftest27">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": { "a": "3" }
+    }
+]
+</script>
+
+<script type="text/html" id="test28">
+iterate one
+{
+    "a": "3"
+}
+</script>
+<script type="text/html" id="reftest28">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": { "a": "3" }
+    }
+]
+</script>
+
+<script type="text/html" id="test29">
+if one
+{
+    "a": "3"
+}
+else
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest29">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "else",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test30">
+if one
+{
+    "a": "3"
+}
+elsif two
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest30">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test31">
+if one
+{
+    "a": "3"
+}
+elsif two
+{
+    "b": "2"
+}
+else
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest31">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "else",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test32">
+if one
+{
+    "a": "3"
+}
+elsif two
+{
+    "b": "2"
+}
+elsif three
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest32">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "elsif",
+        "name": "three",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test33">
+if one
+{
+    "a": "3"
+}
+elsif two
+{
+    "b": "2"
+}
+elsif three
+{
+    "c": "1"
+}
+else
+{
+    "d": "4"
+}
+</script>
+<script type="text/html" id="reftest33">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "elsif",
+        "name": "three",
+        "obj": { "c": "1" }
+    },
+    {
+        "command": "else",
+        "obj": { "d": "4" }
+    }
+]
+</script>
+
+<script type="text/html" id="test34">
+if one
+{
+    "a": "3"
+}
+iterate two
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest34">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "iterate",
+        "name": "two",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test35">
+iterate one
+{
+    "a": "3"
+}
+if two
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest35">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test36">
+if one
+{
+    "a": "3"
+}
+unless two
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest36">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "unless",
+        "name": "two",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test37">
+unless one
+{
+    "a": "3"
+}
+if two
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest37">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test38">
+if one
+{
+    "a": "3"
+}
+if two
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest38">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test39">
+unless one
+{
+    "a": "3"
+}
+unless two
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest39">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "unless",
+        "name": "two",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test40">
+iterate one
+{
+    "a": "3"
+}
+iterate two
+{
+    "b": "2"
+}
+</script>
+<script type="text/html" id="reftest40">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "iterate",
+        "name": "two",
+        "obj": { "b": "2" }
+    }
+]
+</script>
+
+<script type="text/html" id="test41">
+if one
+{
+    "a": "3"
+}
+else
+{
+    "b": "2"
+}
+if two
+{
+    "c": "1"
+}
+else
+{
+    "d": "4"
+}
+</script>
+<script type="text/html" id="reftest41">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "else",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "obj": { "c": "1" }
+    },
+    {
+        "command": "else",
+        "obj": { "d": "4" }
+    }
+]
+</script>
+
+<script type="text/html" id="test42">
+if one
+{
+    "a": "3"
+}
+elsif two
+{
+    "b": "2"
+}
+if three
+{
+    "c": "1"
+}
+elsif four
+{
+    "d": "4"
+}
+</script>
+<script type="text/html" id="reftest42">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "obj": { "c": "1" }
+    },
+    {
+        "command": "elsif",
+        "name": "four",
+        "obj": { "d": "4" }
+    }
+]
+</script>
+
+<script type="text/html" id="test43">
+if one
+{
+    "a": "3"
+}
+elsif two
+{
+    "b": "2"
+}
+else
+{
+    "c": "1"
+}
+if three
+{
+    "d": "4"
+}
+elsif four
+{
+    "e": "5"
+}
+else
+{
+    "f": "6"
+}
+</script>
+<script type="text/html" id="reftest43">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "elsif",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "else",
+        "obj": { "c": "1" }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "obj": { "d": "4" }
+    },
+    {
+        "command": "elsif",
+        "name": "four",
+        "obj": { "e": "5" }
+    },
+    {
+        "command": "else",
+        "obj": { "f": "6" }
+    }
+]
+</script>
+
+<script type="text/html" id="test44">
+if one
+{
+    "a": "3"
+}
+if two
+{
+    "b": "2"
+}
+else
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest44">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "else",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test45">
+if one
+{
+    "a": "3"
+}
+if two
+{
+    "b": "2"
+}
+if three
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest45">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "if",
+        "name": "three",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test46">
+iterate one
+{
+    "a": "3"
+}
+iterate two
+{
+    "b": "2"
+}
+iterate three
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest46">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "iterate",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "iterate",
+        "name": "three",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test47">
+unless one
+{
+    "a": "3"
+}
+unless two
+{
+    "b": "2"
+}
+unless three
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest47">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "unless",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test48">
+if one
+{
+    "a": "3"
+}
+iterate two
+{
+    "b": "2"
+}
+unless three
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest48">
+[
+    {
+        "command": "if",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "iterate",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test49">
+unless one
+{
+    "a": "3"
+}
+if two
+{
+    "b": "2"
+}
+iterate three
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest49">
+[
+    {
+        "command": "unless",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "iterate",
+        "name": "three",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test50">
+iterate one
+{
+    "a": "3"
+}
+if two
+{
+    "b": "2"
+}
+unless three
+{
+    "c": "1"
+}
+</script>
+<script type="text/html" id="reftest50">
+[
+    {
+        "command": "iterate",
+        "name": "one",
+        "obj": { "a": "3" }
+    },
+    {
+        "command": "if",
+        "name": "two",
+        "obj": { "b": "2" }
+    },
+    {
+        "command": "unless",
+        "name": "three",
+        "obj": { "c": "1" }
+    }
+]
+</script>
+
+<script type="text/html" id="test51">
+one
+</script>
+
+<script type="text/html" id="test52">
+if
+</script>
+
+<script type="text/html" id="test53">
+elsif
+</script>
+
+<script type="text/html" id="test54">
+else
+</script>
+
+<script type="text/html" id="test55">
+unless
+</script>
+
+<script type="text/html" id="test56">
+iterate
+</script>
+
+<script type="text/html" id="test57">
+if one
+</script>
+
+<script type="text/html" id="test58">
+iterate one
+</script>
+
+<script type="text/html" id="test59">
+unless one
+</script>
+
+<script type="text/html" id="test60">
+if
+{
+}
+</script>
+
+<script type="text/html" id="test61">
+elsif one
+{
+}
+</script>
+
+<script type="text/html" id="test62">
+else
+{
+}
+</script>
+
+<script type="text/html" id="test63">
+unless
+{
+}
+</script>
+
+<script type="text/html" id="test64">
+ïterate
+{
+}
+</script>
+
+<script type="text/html" id="test65">
+{
+</script>
+
+<script type="text/html" id="test66">
+if one
+{
+</script>
+
+<script type="text/html" id="test67">
+if one
+{
+}
+elsif two
+</script>
+
+<script type="text/html" id="test68">
+if one
+{
+}
+else
+</script>
+
+<script type="text/html" id="test69">
+if one
+{
+}
+elsif two
+{
+}
+else
+</script>
+
+<script type="text/html" id="test70">
+if one
+{
+}
+elsif two
+{
+</script>
+
+<script type="text/html" id="test71">
+if one
+{
+}
+else
+{
+</script>
+
+<script type="text/html" id="test72">
+if one
+{
+}
+elsif two
+{
+}
+else
+{
+</script>
+
+<script type="text/html" id="test73">
+unless one
+{
+</script>
+
+<script type="text/html" id="test74">
+iterate one
+{
+</script>
+
+<script type="text/html" id="test75">
+{
+</script>
+
+<script type="text/html" id="test76">
+{
+    "a": "3"
+</script>
+
+<script type="text/html" id="test77">
+{
+    a
+}
+</script>
+
+<script type="text/html" id="test78">
+{
+    a:
+}
+</script>
+
+<script type="text/html" id="test79">
+{
+    "a": "3"
+    "b": "2"
+}
+</script>
+
+<script type="text/html" id="test80">
+{
+    "a": "3",
+    b
+}
+</script>
+
+<script type="text/html" id="test81">
+ {
+ }
+</script>
+
+<script type="text/html" id="test82">
+{
+ }
+</script>
+
+<script type="text/html" id="test83">
+ {
+}
+</script>
+
+<script type="text/html" id="test84">
+{
+}
+else
+{
+}
+</script>
+
+<script type="text/html" id="test85">
+{
+}
+elsif one
+{
+}
+</script>
+
+<script type="text/html" id="test86">
+iterate one
+{
+}
+else
+{
+}
+</script>
+
+<script type="text/html" id="test87">
+iterate one
+{
+}
+elsif two
+{
+}
+</script>
+
+<script type="text/html" id="test88">
+unless one
+{
+}
+else
+{
+}
+</script>
+
+<script type="text/html" id="test89">
+unless one
+{
+}
+elsif two
+{
+}
+</script>
+
+<script type="text/html" id="test90">
+if one
+{
+}
+{
+}
+elsif two
+{
+}
+</script>
+
+<script type="text/html" id="test91">
+if one
+{
+}
+{
+}
+else
+{
+}
+</script>
+
+<script type="text/html" id="test92">
+if one
+{
+}
+elsif two
+{
+}
+{
+}
+elsif three
+{
+}
+</script>
+
+<script type="text/html" id="test93">
+if one
+{
+}
+elsif two
+{
+}
+{
+}
+else
+{
+}
+</script>
+
+<script type="text/html" id="test94">
+if one
+{
+}
+unless two
+{
+}
+elsif three
+{
+}
+</script>
+
+<script type="text/html" id="test95">
+if one
+{
+}
+unless two
+{
+}
+else
+{
+}
+</script>
+
+<script type="text/html" id="test96">
+if one
+{
+}
+unless two
+{
+}
+elsif three
+{
+}
+</script>
+
+<script type="text/html" id="test97">
+if one
+{
+}
+unless two
+{
+}
+else
+{
+}
+</script>
+
+<script type="text/html" id="test98">
+{
+    a: {
+}
+</script>
+
+<script type="text/html" id="test99">
+{
+    a: [
+}
+</script>
+
+<script type="text/html" id="test100">
+{
+    a: {},
+    b: {
+}
+</script>
+
+</head>
+<body id="step1"></body>
+</html>

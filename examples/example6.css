@@ -1,0 +1,23 @@
+div.defaultdropview {
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	width: 400px;
+	height: 200px;
+	background-color: blue;
+}
+
+div.secondarydropview {
+	position: absolute;
+	left: 100px;
+	top: 400px;
+	width: 400px;
+	height: 200px;
+	background-color: red;
+}
+
+div.dragview {
+	position: absolute;
+	left: 10px;
+	top: 0px;
+}

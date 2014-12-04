@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../fragmate.css">
+<link rel="stylesheet" type="text/css" href="example11.css">
+<script src="../fragmate.js"></script>
+<script src="example11.js"></script>
+
+<script type="text/text" id="mainTemplate">
+{
+	"$$type": "fragment",
+	"$$name": "myFragment",
+	
+	"view1": {
+		"$$type": "view",
+		"$$name": "TextView",
+		
+		"text": "Hello"
+	},
+	
+	"view2": {
+		"$$type": "view",
+		"$$name": "TextView",
+		
+		"text": "World"
+	},
+	
+	"view3": {
+		"$$type": "view",
+		"$$name": "TextView",
+		
+		"text": "Bye"
+	}
+}
+</script>
+
+<script type="text/html" id="myFragment"><div>{{view1}}{{view2}}{{view3}}</div></script>
+</head>
+<body></body>
+</html>

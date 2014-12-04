@@ -1,0 +1,20 @@
+body {
+	margin: 0
+}
+
+div.cellview {
+	color: white;
+	background-color: black;
+	width: 60px;
+	height: 40px;
+	position: absolute;
+}
+
+div.gridview {
+	background-color: green;
+	width: 400px;
+	height: 350px;,
+	left: 100px,
+	top: 0px,
+	position: absolute
+}

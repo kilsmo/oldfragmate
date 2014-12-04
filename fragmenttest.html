@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Button and valueChanged test</title>
+	<script src="fragmate.js"></script>
+	<script src="fragmenttest.js"></script>
+	<script type="text/text" id="testtemp1">
+unless on
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+{
+	"$$type": "view",
+	"$$name": "buttonView",
+
+	"text": "Toggle"
+}
+	</script>
+
+	<script type="text/html" id="testfrag1">
+		<span>{{text}}</span>{{temp}}
+	</script>
+
+	<script type="text/html" id="testfrag2">
+		<h1>Second fragment</h1>
+		<span>{{text}}</span>
+	</script>
+
+</head>
+<body>
+</body>

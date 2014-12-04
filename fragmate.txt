@@ -1,0 +1,421 @@
+Fragmate manual
+===============
+
+Fragmate (short for Fragment and Template) is an MVC framework for single-page web applications. It is also designed to be able to build a Blink based web browser, using web technology to build the ui.
+
+Fragmate is mostly inspired by Knockout.js and Angular.js. Fragmate has the following design principles:
+
+1. Make it really easy to create ui components. (called views in Fragmate)
+2. Avoid 'magic' in the framework, to make it easy to understand and easy to debug. (Angular.js has lots of magic)
+3. No cross-browser support, only supports Blink. (of course it might work in other browsers by accident)
+4. No built-in components, components are up to each project using Fragmate to design.
+5. Very simple design, both to grasp and to implement.
+
+The controller
+==============
+
+In Knockout.js, they call the controller the ViewModel. Fragmate calls this the controller, a more familiar word. Fragmate might be MVVM, just lite Knockout.js, but I prefer calling it MVC anyway. It is just words.
+
+To create a new controller: new fm.Controller();
+
+A Fragmate based web application will have at least one Controller.
+
+fm.Controller.addActions(actions)
+---------------------------------
+
+An object with pair of names and functions.
+
+An action is a function that can be called from outside the controller, to either get a value, or change values.
+
+The actions this pointer is the controller.
+
+fm.Controller.action(name)
+--------------------------
+
+Calls an action named name (with optional extra parameters after the first parameter) from outside the controller.
+Will return a value from the action.
+
+fm.Controller.subscribe(name, listener)
+---------------------------------------
+
+Subscribes to an action named name, with the listener listener. (an object with a callback named valueChanged inside it, valueChanged(name, value))
+Returns a value, and does not change the state (value) of the controller. As soon as the value that the action name returns
+changes, the listeners to name will get a valueChanged call.
+
+fm.Controller.get(name)
+-----------------------
+
+Internal function in a Controller, that should only be called from the action's in the controller.
+
+Returns the internal value named name.
+
+fm.Controller.set(name, value)
+------------------------------
+
+Internal function in a Controller, that should only be called from the action's in the controller.
+
+Sets the internal value named name to value.
+
+fm.Controller.clear(name)
+-------------------------
+
+Internal function in a Controller, that should only be called from the action's in the controller.
+
+Clears the value name, if it is an object or an array. name will then be an empty object or an empty array.
+
+fm.Controller.append(name)
+--------------------------
+
+Internal function in a Controller, that should only be called from the action's in the controller.
+
+If name has an array value, appends the parameters after name to the array.
+
+fm.Controller.prepend(name)
+---------------------------
+
+Internal function in a Controller, that should only be called from the action's in the controller.
+
+If name has an array value, prepends the parameters after name to the array.
+
+fm.Controller.remove(name, index, len)
+--------------------------------------
+
+Internal function in a Controller, that should only be called from the action's in the controller.
+
+If name has an array value, removes elements from index and forward, len values, or 1 if len is not given as a parameter.
+
+fm.Controller.insert(name, index, value)
+----------------------------------------
+
+Internal function in a Controller, that should only be called from the action's in the controller.
+
+If name has an array value, inserts value at index.
+
+fm.Controller.afterEvent()
+--------------------------
+
+afterEvent should be called from a view, when the event that the view has handled ends. This is to make sure that
+all subscribers that subscribes to valueChanged will be called. This is more efficient than always calling valueChanged
+as soon as a value changes. (since the DOM will not be updated on screen until the event ends, the delay of calling valueChanged
+will never be visible)
+
+fm.addController(name, controller)
+----------------------------------
+
+Registers a controller object to a name, so that fm.getController(name) can return the controller. Used by the templates to get
+the right controller.
+
+The view
+========
+
+The view is a "class" that has a valueChanged callback, and that is registered with fm.addView.
+
+The view has a constructor, that takes a params object as a parameter, and also a controller object.
+
+In the params object, there can be normal values, or fm_ref values.
+
+fm_ref values looks like:
+
+{
+  type: 'fm_ref',
+  value: 'name'
+}
+
+An fm_ref value is used to reference the controller, and use fm.controller.action() or fm.controller.subscribe().
+
+name is a string that references an action with that name in the controller.
+
+The View object when instantiated, must have an elm value, that is a DOM element.
+
+The view must also have a cleanup function, that is usually used to remove subscribers from the controller.
+
+fm.addView(name, constructor)
+-----------------------------
+
+Registers a view with the constructor constructor to the name name.
+
+fm.getView(name)
+----------------
+
+Returns the constructor for the view named name.
+
+The template
+============
+
+The template is rather simple, compared to the templates in other MVC frameworks. With the template, you can make parts of the application conditional, or easily add lists of templates, fragments, or views to the screen.
+
+The template can use the following commands: if/elsif/else, unless, and iterate. A command can also be unconditional.
+
+Unconditional command
+---------------------
+
+{
+  $$type: 'view',
+  $$name: 'TextView',
+  
+  text: 'Hello world'
+}
+
+Will create a TextView view with the parameter text that is 'Hello world'.
+
+Resulting html, if TextView creates a span with text: <div class="fm_template><span>Hello world</span></div>
+
+if/elsif/else command
+---------------------
+
+if cond
+{
+  $$type: 'view',
+  $$name: 'TextView',
+  
+  text: 'Hello world'
+}
+
+If cond in the controller is true, the TextView with the text 'Hello world' will be created and visible. If cond in the controller is false, it will not be created nor visible. The template
+will subscribe to cond in the controller, so if the value of cond changes, so will the visibility of the TextView.
+
+Resulting html, if TextView creates a span with text, and cond is true: <div class="fm_template><span>Hello world</span></div>
+
+Resulting html, if cond is false: <div class="fm_template></div>
+
+if cond
+{
+  $$type: 'view',
+  $$name: 'TextView',
+  
+  text: 'Hello world'
+}
+else
+{
+  $$type: 'view',
+  $$name: 'TextView',
+  
+  text: 'Bye world'
+}
+
+If cond in the controller is true, "Hello world" will be visible, if false, "Bye world" will be visible.
+
+Resulting html, if TextView creates a span with text, and cond is true: <div class="fm_template><span>Hello world</span></div>
+
+Resulting html, if TextView creates a span with text, and cond is false: <div class="fm_template><span>Bye world</span></div>
+
+if cond
+{
+  $$type: 'view',
+  $$name: 'TextView',
+  
+  text: 'Hello world'
+}
+elsif cond2
+{
+  $$type: 'view',
+  $$name: 'TextView',
+  
+  text: 'Hello world 2'
+}
+else
+{
+  $$type: 'view',
+  $$name: 'TextView',
+  
+  text: 'Bye world'
+}
+
+If cond in the controller is true, "Hello world" will be visible, else if cond2 in the controller is true, "Hello world 2" will be visible, else "Bye world" will be visible.
+
+Resulting html, if TextView creates a span with text, and cond is true: <div class="fm_template><span>Hello world</span></div>
+
+Resulting html, if TextView creates a span with text, cond is false, and cond2 is true: <div class="fm_template><span>Hello world 2</span></div>
+
+Resulting html, if TextView creates a span with text, cond is false, and cond2 is false: <div class="fm_template><span>Bye world</span></div>
+
+unless command
+--------------
+
+unless cond
+{
+  $$type: 'view',
+  $$name: 'TextView',
+  
+  text: 'Hello world'
+}
+
+If cond in the controller is false, "Hello world" will be visible.
+
+Resulting html, if TextView creates a span with text, and cond is false: <div class="fm_template><span>Hello world</span></div>
+
+iterate command
+---------------
+
+iterate value
+{
+  $$type: 'view',
+  $$name: 'TextView'
+}
+
+TODO: define how to get the value.
+
+Iterates through the array in value from the controller.
+
+Create a TextView for each element in the array.
+
+Will list all the elements in the array on screen.
+
+How the template works
+----------------------
+
+The template is similar to the View, it has an elm, which is the DOM element for the template. (A div with the class fm_template)
+
+It also has valueChanged, and cleanup function.
+
+The template is inside a script tag, with a type that is not text/javascript, and has an id, which is the template's name. The template
+is parsed with the help of getElementById, and innerText.
+
+The commands if, unless, iterate only works on references to the controller, they never have JavaScript code or anything like that. They
+always subscribe to that value in the controller.
+
+The fragment
+============
+
+The fragment is there to be able to easily create HTML fragments. A fragment takes parameters that can be views or templates.
+
+The fragment is defined in a script tag with the name as id, and type is text/html.
+
+<script type="text/html" id="hello">Hello is: {{ text }}!</script>
+
+{
+	$$type: 'fragment',
+	$$name: 'hello',
+	
+	text: {
+		$$type: 'view',
+		$$name: 'TextView',
+		
+		text: 'Hello world'
+	}
+
+}
+
+If TextView generates a span with text as content, all of this will generate the html:
+
+<div class="fm_template"><div class="fm_fragment">Hello is: <span>Hello world</span>!</div></div>
+
+See that the fragment creates a div with the class fm_fragment.
+
+$$controller
+============
+
+When defining a template or a view, you can set $$controller to the controller that the template or view will use. If $$controller is not defined, the template or view
+will use the same controller as the template uses, where the view or template was defined.
+
+A fragment does not have a controller, but is transparent, and the fragments params inherit the controller of the template, if $$controller is not defined.
+
+$$span
+======
+
+A fragment can define $$span as true or false. If $$span is not defined, a fragment will include its content in a div, if $$span is true, a fragment will include its content in a span.
+
+Example 1, no span
+------------------
+
+<script type="text/html" id="hello">Hello world</script>
+
+{
+	$$type: 'fragment',
+	$$name: 'hello'
+}
+
+Will generate: <div class="fm_template"><div class="fm_fragment">Hello world</div></div>
+
+Example 2, span
+---------------
+
+<script type="text/html" id="hello">Hello world</script>
+
+{
+	$$type: 'fragment',
+	$$name: 'hello',
+	$$span: true
+}
+
+Will generate: <div class="fm_template"><span class="fm_fragment">Hello world</span></div>
+
+The main template
+=================
+
+A Fragment application will have a main template, and a main controller.
+
+fm.init(template, controller)
+-----------------------------
+
+Sets the root template to have the name template, and the controller for that template is set to the name controller.
+
+The template will be the child of the body tag.
+
+Example of init
+---------------
+
+fm.init('mainTemplate', 'mainController');
+
+<script type="text/text" id="mainTemplate">
+{
+    $$type: 'fragment',
+	$$name: 'hello'
+}
+</script>
+
+<script type="text/html" id="hello">Hello world</script>
+
+Will result in the html: <body><div class="fm_template"><div class="fm_fragment">Hello world</div></div></body>
+
+$ or fm_ref
+===========
+
+Using $ as a prefix to a parameter to a template or to a view, will define a reference (fm_ref) to the controller.
+
+{
+    $$type: 'view',
+	$$name: 'TextView',
+	
+	$text: 'hello'
+}
+
+TextView subscribes to hello in the controller, and when hello changes, so will the content in TextView.
+
+Creating a view class
+=====================
+
+TextView = function(controller, params) {
+    this.controller = controller;
+	var text = this.text;
+	if (this.text.type == 'fm_ref') {
+	    this.textSubscribe = params.text.value;
+	    text = controller.subscribe(this.textSubscribe);
+	}
+	this.elm = document.createElement('span');
+	this.elm.innerText(text);
+};
+
+TextView.prototype = {
+    valueChanged: function(name, value) {
+	    if (name == this.textSubscribe) {
+		    this.elm.innerText(value);
+		}
+	},
+	
+	cleanup: function() {
+		if (this.textSubscribe)
+			this.controller.unsubscribe(this.textSubscribe);
+	}
+};
+
+fm.addView('TextView', TextView);
+
+{
+    $$type: 'view',
+	$$name: 'TextView',
+	
+	$text: 'hello'
+}
+
+Creates a TextView that gets its value from the controller's hello value. When the controller's hello value changes, so do the TextView's string.

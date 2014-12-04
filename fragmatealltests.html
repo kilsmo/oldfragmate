@@ -1,0 +1,1387 @@
+<!doctype html>
+<html>
+<head>
+<title>Fragmate tests</title>
+<script src="fragmate.js"></script>
+<script src="fragmatealltests.js"></script>
+
+<script type="text/text" id="test1">
+</script>
+
+<script type="text/html" id="reftest1"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test2">
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest2"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test3">
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"$text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest3"><div class="fm_template"><span>Hello world</span></div></script>
+
+<script type="text/text" id="test4">
+{
+	"$$type": "template",
+	"$$name": "test1"
+}
+</script>
+
+<script type="text/html" id="reftest4"><div class="fm_template"><div class="fm_template"></div></div></script>
+
+<script type="text/text" id="test5">
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"$text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest5"><div class="fm_template"><span>Hello you</span></div></script>
+
+<script type="text/text" id="test6">
+unless one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest6"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test7">
+unless one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest7"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test8">
+unless one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest8"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test9">
+unless one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest9"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test10">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest10"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test11">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest11"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test12">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest12"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test13">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+</script>
+
+<script type="text/html" id="reftest13"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test14">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest14"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test15">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest15"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test16">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest16"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test17">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest17"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test18">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest18"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test19">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest19"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test20">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest20"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test21">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest21"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test22">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest22"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test23">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest23"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test24">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+</script>
+
+<script type="text/html" id="reftest24"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test25">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest25"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test26">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest26"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test27">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest27"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test28">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest28"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test29">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest29"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test30">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest30"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test31">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest31"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test32">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest32"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test33">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest33"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test34">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest34"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test35">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest35"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test36">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest36"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test37">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest37"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test38">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest38"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test39">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest39"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test40">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest40"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test41">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest41"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test42">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest42"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test43">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest43"><div class="fm_template"></div></script>
+
+<script type="text/text" id="test44">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest44"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test45">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest45"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test46">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+</script>
+
+<script type="text/html" id="reftest46"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test47">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest47"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test48">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest48"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test49">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest49"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test50">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest50"><div class="fm_template"><span>hello4</span></div></script>
+
+<script type="text/text" id="test51">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest51"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test52">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest52"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test53">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest53"><div class="fm_template"><span>hello4</span></div></script>
+
+<script type="text/text" id="test54">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest54"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test55">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest55"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test56">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest56"><div class="fm_template"><span>hello4</span></div></script>
+
+<script type="text/text" id="test57">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest57"><div class="fm_template"><span>hello</span></div></script>
+
+<script type="text/text" id="test58">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest58"><div class="fm_template"><span>hello2</span></div></script>
+
+<script type="text/text" id="test59">
+if one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello"
+}
+elsif two
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello2"
+}
+elsif three
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello3"
+}
+else
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"text": "hello4"
+}
+</script>
+
+<script type="text/html" id="reftest59"><div class="fm_template"><span>hello3</span></div></script>
+
+<script type="text/text" id="test60">
+iterate one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"__text": ""
+}
+</script>
+
+<script type="text/html" id="reftest60"><div class="fm_template"><span>one</span><span>two</span><span>three</span></div></script>
+
+<script type="text/text" id="test61">
+iterate one
+{
+	"$$type": "view",
+	"$$name": "textView",
+
+	"__text": ""
+}
+</script>
+
+<script type="text/html" id="reftest61"><div class="fm_template"><span>one</span><span>two</span><span>three</span><span>four</span></div></script>
+
+</head>
+<body></body>
+</html>

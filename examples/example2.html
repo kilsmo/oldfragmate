@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<title>Example 2: list</title>
+<link rel="stylesheet" type="text/css" href="example2.css" media="screen" />
+
+<script src="../fragmate.js"></script>
+<script src="example2.js"></script>
+
+<script type="text/text" id="mainTemplate">
+if addItem
+{
+	"$$type": "template",
+	"$$name": "addTemplate"
+}
+else
+{
+	"$$type": "template",
+	"$$name": "viewTemplate",
+	"$$klass": "view"
+}
+</script>
+
+<script type="text/text" id="viewTemplate">
+{
+	"$$type": "view",
+	"$$name": "TextFieldView",
+
+	"size": 20,
+	"$text": "searchValue",
+	"textChanged": "searchValueChanged"
+}
+{
+	"$$type": "fragment",
+	"$$name": "listFragment",
+	"$$klass": "listfragment",
+
+	"listItems": {
+		"$$type": "template",
+		"$$name": "listItems"
+	}
+}
+{
+	"$$type": "view",
+	"$$name": "ButtonView",
+
+	"text": "Add",
+	"click": "gotoAddTemplate"
+}
+{
+	"$$type": "view",
+	"$$name": "ButtonView",
+
+	"text": "Remove",
+	"click": "removeItem"
+}
+
+</script>
+
+<script type="text/text" id="addTemplate">
+{
+	"$$type": "view",
+	"$$name": "TextFieldView",
+
+	"size": "20",
+    "text": "",
+	"textChanged": "addItemValueChanged"
+}
+{
+	"$$type": "view",
+	"$$name": "ButtonView",
+
+	"text": "Add",
+	"click": "addItemAdd"
+}
+{
+	"$$type": "view",
+	"$$name": "ButtonView",
+
+	"text": "Cancel",
+	"click": "addItemCancel"
+}
+</script>
+
+<script type="text/text" id="listItems">
+iterate list
+{
+	"$$type": "view",
+	"$$name": "ListItemView",
+	
+	"__text": "",
+	"elementClicked": "activeElement"
+}
+</script>
+
+<script type="text/text" id="listFragment">
+<div class="list">{{listItems}}</div>
+</script>
+
+</head>
+<body></body>
+</html>

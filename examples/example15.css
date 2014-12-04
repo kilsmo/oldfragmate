@@ -1,0 +1,28 @@
+div.mycardview {
+	position: absolute;
+}
+
+div.hidden {
+	visibility: hidden;
+}
+
+div.visible {
+	visibility: visible;
+}
+
+div.red {
+	background-color: red;
+}
+
+div.green {
+	background-color: green;
+}
+
+div.blue {
+	background-color: blue;
+}
+
+div.cardview {
+	width: 400px;
+	height: 400px;
+}
